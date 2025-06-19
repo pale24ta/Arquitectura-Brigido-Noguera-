@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{algpseudocode}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+\graphicspath{{./Captura de pantalla de 2025-06-19 17-38-20/}}
+
+\title{}
+\author{Brigido Noguera}
+\date{June 2025}
+
+\begin{document}
+
+\maketitle
+\section{Prestaciones}
+
+para maximizar las prestaciones se necesita minimizar el tiempo
+de ejecucion.
+
+\[  
+    prestaciones_x = \frac{1}{tiempoDeEjecucion_x}
+\]
+    Asi, si las prestaciones de una maquina X son mayores a las de una maquina Y, se tiene:
+\[
+    prestaciones_x > prestaciones_y
+\]
+\[\frac{1}{tiempoDeEjecucion_x} > \frac{1}{tiempoDeEjecucion_y}\]
+
+\[tiempoDeEjecucion_y = tiempoDeEjecucion_x\]
+
+demuestra que X es mas rapido que Y.
+
+\[\frac{prestaciones_x}{prestaciones_y}=n\]
+
+"X es n veces mas rapida que Y"
+
+
+\section{Prestaciones de CPU y sus factores}
+
+\[
+    tiempoDeEjecucionDeCPU = \frac{cicloDeRelojDeLaCPUparaElPrograma}{frecuenciaDeReloj(GHz)}
+\]
+
+\[
+    ciclosDeRelojDeCPU = instruccionesDeUnPrograma * CPI
+\]
+
+\[
+    tiepoDeCPU_A = ciclosDeCPU_A * tiempoDeCiclo_A
+\]
+
+\[
+    tiempoDeEjecucion = \frac{numeroDeInstrucciones *CPI}{frecuenciaDeReloj}
+\]
+
+\[
+    CPI = \frac{numeroDeCiclos(CPU)}{numeroDeInstrucciones}
+\]
+
+
+\section{Falacias y errores habituales(Ley de Amdahl)}
+
+\[
+    tiempoDe EjecucionDespuesDeLaMejora = \frac{tiempoDeEjecucionPorLaMejora}{cantidadDeMejora} + tiempoDeEjecucionNoAfectado
+\]
+
+\section{GCC (Compilador de C) y Optimizacion}
+
+ejemplo del comando \verb|time|.
+
+\begin{verbatim}
+    gcc hola_mundo.c    // Compila el archivo
+    time ./a.out        // Ejecuta y mide el su tiempo de ejecucion
+
+    // Resultado //
+    real	0m0,004s
+    user	0m0,000s
+    sys	0m0,004s
+
+\end{verbatim}
+
+Una de las funcionalidades más potentes del compilador es la de “optimizar el código”. Existen múltiples técnicas para analizar y transformar el código generado inicialmente por el compilador de forma que se obtenga un mejor rendimiento o en tiempo de ejecución, o en uso de memoria. Para que el compilador aplique estas técnicas se debe incluir la opción \verb|-O|. Compila de nuevo el programa con esta opción y ejecútalo de nuevo con el comando time como prefijo. Compara los dos tiempos de ejecución.
+
+\begin{verbatim}
+    gcc -O hola_mundo.c     // Compilamos con una optimizacion incluida (segun el codigo del programa)
+\end{verbatim}
+
+\end{document}
